@@ -13,7 +13,7 @@ const operators = ["+", "-", "x", "/"]
 
 function handleKeyPress(e){
     const key = e.target.dataset.key
-    const lastChar = operator[operation.length -1]
+    const lastChar = operators[operation.length -1]
 
     if (key === "="){
         return
@@ -22,7 +22,7 @@ function handleKeyPress(e){
         return
     }
 
-    if )operators.indexOf(key) !== -1{
+    if (operators.indexOf(key) !== -1){
         decimalAdded = false
     }
 
@@ -37,8 +37,21 @@ function handleKeyPress(e){
         return
     }
 
-    if(operators.indexOf(lastChar) !== -1 && operators.indexOf (key) !== -1){
+    if(operators.indexOf(lastChar) !== -1 && operators.indexOf(key) !== -1){
         input.innerHTML = operation
         return
     }
+
+    if (key){
+        if (key=== ".") decimalAdded = true
+            operation += key
+            input.innerHTML = operation
+            return
+    }
+
 }
+
+keys.forEach(key => {
+    key.addEventListener("click", handleKeyPress)
+})
+
